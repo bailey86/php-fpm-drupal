@@ -4,7 +4,7 @@ Docker image for a php-fpm container crafted to run Drupal based applications.
 
 ## Specifications:
 
-* PHP 7.1
+* PHP 7.0/7.1
 * OpenSSL PHP Extension
 * Mbstring PHP Extension
 * Tokenizer PHP Extension
@@ -34,6 +34,7 @@ given Docker image. By default, `latest` is the one used when no tag is specifie
 
 * `latest` which is using PHP 7.1 for Drupal 8.
 * `7.1` for Drupal 8 using PHP 7.1.
+* `7.0` for Drupal 8 using PHP 7.0.
 
 ## docker-compose usage:
 
