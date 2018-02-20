@@ -2,7 +2,7 @@ FROM php:7.0-fpm
 
 MAINTAINER simone@cyber-duck.co.uk
 
-ENV XDEBUG="false"
+ENV XDEBUG "false"
 
 RUN apt-get update && \
     apt-get install -y --force-yes --no-install-recommends \
@@ -64,7 +64,11 @@ RUN docker-php-ext-install gd && \
 #####################################
 
 # Install the xdebug extension
-RUN pecl install xdebug && docker-php-ext-enable xdebug
+RUN pecl install xdebug
+RUN if [ "$XDEBUG" = "true" ]; then \
+    docker-php-ext-enable xdebug; \
+    fi
+
 # Copy xdebug configration for remote debugging
 COPY ./xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 
@@ -93,12 +97,9 @@ RUN . ~/.bashrc
 #####################################
 RUN composer global require drush/drush
 
-#
 #--------------------------------------------------------------------------
 # Final Touch
 #--------------------------------------------------------------------------
-#
-
 ADD ./drupal.ini /usr/local/etc/php/conf.d
 
 #####################################
@@ -114,11 +115,6 @@ RUN rm -r /var/lib/apt/lists/*
 RUN usermod -u 1000 www-data
 
 WORKDIR /var/www
-
-COPY ./xdebug-config.sh /usr/local/bin/
-RUN chmod +x /usr/local/bin/xdebug-config.sh
-RUN sh /usr/local/bin/xdebug-config.sh
-ENTRYPOINT ["docker-entrypoint.sh"]
 
 EXPOSE 9000
 

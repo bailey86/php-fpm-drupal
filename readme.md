@@ -43,7 +43,7 @@ services:
     php-fpm:
         image: cyberduck/php-fpm-drupal(:<optional-tag>)
         environment:
-            XDEBUG: "true" # optional: "false" by default
+            - XDEBUG="true" # optional: "false" by default
         volumes:
             - ./:/var/www/
             - ~/.ssh:/root/.ssh # can be useful for composer if you use private CVS
