@@ -1,4 +1,4 @@
-# PHP-FPM Docker image for SilverStripe 3.6+
+# PHP-FPM Docker image for Drupal
 
 Docker image for a php-fpm container crafted to run Drupal based applications.
 
