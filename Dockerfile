@@ -64,7 +64,7 @@ RUN docker-php-ext-install gd && \
 #####################################
 
 # Install the xdebug extension
-RUN pecl install xdebug
+RUN pecl install xdebug-2.5.5
 RUN if [ "$XDEBUG" = "true" ]; then \
     docker-php-ext-enable xdebug; \
     fi
@@ -95,7 +95,7 @@ RUN . ~/.bashrc
 #####################################
 # Drush:
 #####################################
-RUN composer global require drush/drush
+RUN composer global require drush/drush:8.x
 
 #--------------------------------------------------------------------------
 # Final Touch
