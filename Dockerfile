@@ -5,12 +5,12 @@ MAINTAINER simone@cyber-duck.co.uk
 ENV XDEBUG "false"
 
 RUN apt-get update && \
-    apt-get install -y --force-yes --no-install-recommends \
+    apt-get install -y --assume-yes --no-install-recommends \
         zlib1g-dev libicu-dev g++ \
         libz-dev \
         libpq-dev \
         libjpeg-dev \
-        libpng12-dev \
+        libpng-dev \
         libfreetype6-dev \
         libssl-dev \
         libmcrypt-dev \
@@ -22,9 +22,9 @@ RUN apt-get update && \
         libcurl4-openssl-dev
 
 # Install the PHP curl extention
-RUN if [ ! -d /usr/include/curl ]; then \
-    ln -sT "/usr/include/$debMultiarch/curl" /usr/local/include/curl; \
-fi;
+# RUN if [ ! -d /usr/include/curl ]; then \
+#     ln -sT "/usr/include/$debMultiarch/curl" /usr/local/include/curl; \
+# fi;
 
 RUN docker-php-ext-install curl
 
