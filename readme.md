@@ -22,7 +22,7 @@ Docker image for a php-fpm container crafted to run Drupal based applications.
 * GD2 PHP Extension
 * OP Cache PHP Extension
 * Composer
-* PHP ini values for SilverStripe (see [`silverstripe.ini`](/silverstripe.ini))
+* PHP ini values for Drupal (see [`drupal.ini`](/drupal.ini))
 * xDebug (PHPStorm friendly, see [`xdebug.ini`](/xdebug.ini)) Disabled by default.
 * `drush` alias created to run Drupal CLI with `docker-compose exec [service_name] drush`.
 
