@@ -4,7 +4,7 @@ Docker image for a php-fpm container crafted to run Drupal based applications.
 
 ## Specifications:
 
-* PHP 5.6/7.0/7.1
+* PHP 5.6/7.0/7.1/7.2
 * OpenSSL PHP Extension
 * Mbstring PHP Extension
 * Tokenizer PHP Extension
@@ -32,7 +32,8 @@ When calling the image you want to use within your `docker-compose.yml` file,
 you can specify a tag for the image. Tags are used for various versions of a
 given Docker image. By default, `latest` is the one used when no tag is specified.
 
-* `latest` which is using PHP 7.1 for Drupal.
+* `latest` which is using PHP 7.2 for Drupal.
+* `7.2` for Drupal 8 using PHP 7.2.
 * `7.1` for Drupal 8 using PHP 7.1.
 * `7.0` for Drupal 8 using PHP 7.0.
 * `5.6` for Drupal 7 using PHP 5.6.
